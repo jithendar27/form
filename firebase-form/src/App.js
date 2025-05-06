@@ -3,10 +3,24 @@ import "./App.css";
 import firebase from "firebase/compat/app";
 import "firebase/compat/database";
 
+// ✅ Initialize Firebase (with your credentials)
+const firebaseConfig = {
+  apiKey: "AIzaSyD_B-1Wm_3DG3b5f5ae6n6jX_60rfGbzI0",
+  authDomain: "form-in-firebase.firebaseapp.com",
+  databaseURL: "https://form-in-firebase-default-rtdb.firebaseio.com",
+  projectId: "form-in-firebase",
+  storageBucket: "form-in-firebase.appspot.com",
+  messagingSenderId: "515594124054",
+  appId: "1:515594124054:web:944258d2fc33cc57a80e6e"
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
 function App() {
   const [theme, setTheme] = useState("light");
 
-  // Function to toggle the theme
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -63,7 +77,6 @@ function App() {
       <button onClick={recallData}>Recall</button>
       <p id="output">No data yet.</p>
 
-      {/* Dark mode toggle */}
       <button className="theme-toggle" onClick={toggleTheme}>
         Toggle Dark Mode
       </button>
