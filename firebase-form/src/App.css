@@ -1,0 +1,145 @@
+/* src/App.css */
+
+/* Apply box-sizing to all elements to prevent layout issues */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Set light and dark theme variables */
+:root {
+  --background-light: linear-gradient(135deg, #74ebd5, #acb6e5);
+  --background-dark: #2c3e50;
+  --text-light: #333;
+  --text-dark: #ecf0f1;
+  --button-light: #007BFF;
+  --button-dark: #34495e;
+  --button-hover-light: #0056b3;
+  --button-hover-dark: #2c3e50;
+  --output-background-light: #f1f1f1;
+  --output-background-dark: #34495e;
+}
+
+[data-theme="light"] {
+  background: var(--background-light);
+  color: var(--text-light);
+}
+
+[data-theme="dark"] {
+  background: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.App {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; /* Ensure the box is centered */
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: var(--text-light);
+}
+
+input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--button-light);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform for effect */
+  display: inline-block;
+  position: relative;
+}
+
+/* Hover effect for light theme */
+button:hover {
+  background-color: var(--button-hover-light);
+  transform: scale(1.05); /* Slightly scale up the button */
+}
+
+/* Dark mode button styling */
+button[data-theme="dark"] {
+  background-color: var(--button-dark);
+}
+
+button[data-theme="dark"]:hover {
+  background-color: var(--button-hover-dark);
+  transform: scale(1.05); /* Slightly scale up the button */
+}
+
+/* Button for toggling themes */
+button.theme-toggle {
+  margin-top: 20px;
+  background-color: var(--button-light);
+}
+
+button.theme-toggle:hover {
+  background-color: var(--button-hover-light);
+}
+
+#output {
+  margin-top: 25px;
+  font-weight: 600;
+  color: var(--text-light);
+  background-color: var(--output-background-light);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+[data-theme="dark"] #output {
+  background-color: var(--output-background-dark);
+  color: var(--text-dark);
+}
+
+/* Add your fadeInUp animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
